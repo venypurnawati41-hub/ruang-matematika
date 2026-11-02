@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ruang Matematika - Veny Purnawati</title>
+  
+  <!-- Google Fonts & Lucide Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- File CSS External -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="site-header">
+    <div class="nav-container">
+      <div class="brand">
+        <div class="brand-icon">
+          <i data-lucide="book-open"></i>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">Kelas Matematika</span>
+          <span class="brand-subtitle">Veny Purnawati</span>
+        </div>
+      </div>
+
+      <nav class="nav-menu">
+        <button class="nav-item active" data-tab="beranda" onclick="switchTab('beranda')">Beranda</button>
+        <button class="nav-item" data-tab="materi-pembelajaran" onclick="switchTab('materi-pembelajaran')">Materi Pembelajaran</button>
+        <button class="nav-item" data-tab="latihan-soal" onclick="switchTab('latihan-soal')">Latihan Soal</button>
+        <button class="nav-item" data-tab="tugas-kuis" onclick="switchTab('tugas-kuis')">Tugas & Kuis</button>
+        <button class="nav-item" data-tab="trik-cepat" onclick="switchTab('trik-cepat')">Trik Cepat</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Konten Utama (Tab Beranda) -->
+  <main id="tab-beranda" class="tab-content active">
+  <!-- ================= HERO SECTION ================= -->
+<section class="hero-section">
+  <div class="hero-overlay"></div>
+  <div class="hero-container">
+    
+    <!-- Maskot Kalkulator Animasi -->
+    <div class="mascot-container">
+      <div class="speech-bubble">Halooo! Selamat datang! 👋✨</div>
+      <div class="calc-mascot">
+        <div class="calc-screen">100%</div>
+        <div class="calc-face">
+          <span class="eye"></span>
+          <span class="eye"></span>
+        </div>
+        <div class="calc-buttons-grid">
+          <span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-badge">Belajar Matematika Lebih Mudah, Cepat, dan Menyenangkan</div>
+    <h1 class="hero-title">Ruang Matematika Interaktif</h1>
+    <p class="hero-description">
+      Akses materi video, latihan soal interaktif, pengumpulan tugas, hingga trik hitung cepat dalam satu platform.
+    </p>
+    
+    <!-- Tombol Mulai Belajar: Scroll ke Fitur Interaktif -->
+    <button class="btn-cta" onclick="scrollToSection('interactive-section')">
+      Mulai Belajar
+      <i data-lucide="arrow-down"></i>
+    </button>
+  </div>
+</section>
+
+<!-- ================= FITUR INTERAKTIF (Posisi Diatas/Pertama) ================= -->
+<section id="interactive-section" class="section-container interactive-section">
+  <div class="section-header">
+    <span class="section-badge">FITUR INTERAKTIF</span>
+    <h2 class="section-title">Pojok Matematika Interaktif</h2>
+    <p class="section-subtitle">Coba fitur hitung instan dan uji ketangkasanmu langsung di bawah ini!</p>
+    
+    <!-- Tombol Baru: Scroll ke Eksplorasi Materi -->
+    <button class="btn-cta-secondary" onclick="scrollToSection('eksplorasi-materi')">
+      Eksplorasi Materi
+      <i data-lucide="arrow-down-right"></i>
+    </button>
+  </div>
+
+  <div class="interactive-grid">
+    <!-- Tool 1: Kalkulator Hitung Cepat -->
+    <div class="interactive-card">
+      <div class="card-header-badge">🧮 Kalkulator Mini</div>
+      <h3>Hitung Ekspresi & Persamaan</h3>
+      <div class="calc-widget">
+        <input type="text" id="calcInput" placeholder="Contoh: 15 * 8 + (24 / 3)" />
+        <button onclick="calculateResult()" class="btn-calc">Hitung</button>
+      </div>
+      <div class="calc-result" id="calcResult">Hasil akan muncul di sini</div>
+    </div>
+
+    <!-- Tool 2: Kuis Kilat Interaktif -->
+    <div class="interactive-card">
+      <div class="card-header-badge">⚡ Kuis Kilat</div>
+      <h3 id="quizQuestion">Berapa hasil dari 7² + 3³?</h3>
+      <div class="quiz-options">
+        <button class="quiz-opt" onclick="checkAnswer(this, false)">64</button>
+        <button class="quiz-opt" onclick="checkAnswer(this, true)">76</button>
+        <button class="quiz-opt" onclick="checkAnswer(this, false)">82</button>
+      </div>
+      <div class="quiz-feedback" id="quizFeedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SECTION EKSPLORASI MATERI ================= -->
+<section id="eksplorasi-materi" class="section-container">
+  <div class="section-header">
+    <span class="section-badge">EKSPLORASI MATERI</span>
+    <h2 class="section-title">Satu portal, beragam cara belajar.</h2>
+    <p class="section-subtitle">Pilih metode belajar yang sesuai dengan kebutuhanmu. Akses penjelasan materi, uji pemahaman lewat kuis, atau pelajari rumus praktis dalam satu tempat.</p>
+  </div>
+
+  <div class="card-grid">
+    <!-- Card 1 -->
+    <div class="feature-card" onclick="openModal('materi-pembelajaran')">
+      <div class="card-top">
+        <div class="card-icon-wrapper"><i data-lucide="book-open"></i></div>
+        <span class="card-number">01</span>
+      </div>
+      <span class="card-tag">Materi Pembelajaran</span>
+      <h3 class="card-title">MPI dan Rangkuman Materi</h3>
+      <p class="card-desc">Pelajari materi bab demi bab melalui MPI dan pembahasan contoh soal secara mendalam.</p>
+      <div class="card-footer">
+        <span>8 materi · 8 tautan tersedia</span>
+        <i data-lucide="arrow-right"></i>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="feature-card" onclick="openModal('latihan-soal')">
+      <div class="card-top">
+        <div class="card-icon-wrapper"><i data-lucide="monitor"></i></div>
+        <span class="card-number">02</span>
+      </div>
+      <span class="card-tag">Latihan Soal</span>
+      <h3 class="card-title">Latihan Soal Interaktif</h3>
+      <p class="card-desc">Uji pemahamanmu secara mandiri melalui bank soal interaktif yang dilengkapi dengan pembahasan.</p>
+      <div class="card-footer">
+        <span>3 materi · 1 tautan tersedia</span>
+        <i data-lucide="arrow-right"></i>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="feature-card" onclick="openModal('tugas-kuis')">
+      <div class="card-top">
+        <div class="card-icon-wrapper"><i data-lucide="file-check"></i></div>
+        <span class="card-number">03</span>
+      </div>
+      <span class="card-tag">Tugas & Kuis</span>
+      <h3 class="card-title">Pengumpulan Tugas & Kuis</h3>
+      <p class="card-desc">Kirimkan hasil pekerjaanmu dan pantau evaluasi nilai dari setiap kuis yang telah diselesaikan.</p>
+      <div class="card-footer">
+        <span>Tersedia untuk semua kelas</span>
+        <i data-lucide="arrow-right"></i>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="feature-card" onclick="openModal('trik-cepat')">
+      <div class="card-top">
+        <div class="card-icon-wrapper"><i data-lucide="sparkles"></i></div>
+        <span class="card-number">04</span>
+      </div>
+      <span class="card-tag">Trik Cepat</span>
+      <h3 class="card-title">Rumus Praktis & Shortcut</h3>
+      <p class="card-desc">Pelajari strategi dan trik menghitung cepat untuk menyelesaikan soal-soal matematika.</p>
+      <div class="card-footer">
+        <span>Metode Praktis</span>
+        <i data-lucide="arrow-right"></i>
+      </div>
+    </div>
+  </div>
+</section>
+  </main>
+
+  <!-- Inisialisasi Lucide Icons -->
+  <script>
+    lucide.createIcons();
+  </script>
+  <!-- File JS External -->
+  <script src="script.js"></script>
+</body>
+</html>
